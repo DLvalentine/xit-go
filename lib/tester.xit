@@ -1,6 +1,6 @@
 Read/Write Xit Files... Anywhere!
-[@] Local #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
-[ ] ! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
+[@] !!! Local #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
+[ ] .!! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
 
 Mobile Friendly Editing
 [ ] ! "cheat sheet" for Xit spec
