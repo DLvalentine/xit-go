@@ -9,7 +9,8 @@ Serializer
     - Might be an app implementation detail, not necessarily a parser thing.
 
 Mobile Friendly Editing
-[ ] ! "raw" mode - if I need to do some restructuring against the "easy mode"
+[@] ! "raw" mode - if I need to do some restructuring against the "easy mode"
+    - syntax highlighting?
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
 [ ] "swipe" left/right for "quick actions" -> configurable. e.g. delete/mark done
@@ -32,6 +33,8 @@ Nice To Have(s)
     - ...because the vscode extension is only *okay* - I think recent updates broke the extension
 [ ] ! Bundle/Deployable executable/APK (not necessarily via App Store cuz $$$)
     - I can always just run locally or via Expo, but that's not as 733T
+    - I might actually be able to deploy this to app stores (google at least) for free.
+    - There's some API documentation for deploying it - 
 [ ] Description of my own usage/process
     - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
       Xit files, txt files, and so on
