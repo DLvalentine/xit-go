@@ -1,10 +1,9 @@
 Read/Write Xit Files... Anywhere!
-[ ] Local #needs-reearch #file-io | optimistic MVP -> 2022-Q4
-[ ] ! Remote (via Google Drive initially) #needs-research #file-io #api | optimistic MVP -> 2022-Q4
+[ ] Local #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
+[ ] ! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
 
 Mobile Friendly Editing
 [ ] ! "cheat sheet" for Xit spec
-    - I should include a copy of it in the repo for future reference #needs-research #api
     - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
@@ -20,7 +19,10 @@ Syntax Highlighting + Rich Display
 
 Nice To Have(s)
 [ ] Light/Dark Theme
-[ ] ! "Local Webapp" version JS bundle
+[ ] ! "Local Webapp" version JS bundle for desktop use
     - ...because the vscode extension is only *okay* - I think recent updates broke the extension
 [ ] ! Bundle/Deployable executable/APK (not necessarily via App Store cuz $$$)
     - I can always just run locally or via Expo, but that's not as 733T
+[ ] Description of my own usage/process
+    - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
+      Xit files, txt files, and so on
