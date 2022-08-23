@@ -5,6 +5,7 @@ Read/Write Xit Files... Anywhere!
 Mobile Friendly Editing
 [ ] ! "cheat sheet" for Xit spec
     - I should include a copy of it in the repo for future reference #needs-research #api
+    - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
 [ ] "swipe" left/right for "quick actions" -> configurable. e.g. delete/mark done
@@ -19,5 +20,7 @@ Syntax Highlighting + Rich Display
 
 Nice To Have(s)
 [ ] Light/Dark Theme
-[ ] "Local Webapp" version JS bundle
+[ ] ! "Local Webapp" version JS bundle
     - ...because the vscode extension is only *okay* - I think recent updates broke the extension
+[ ] ! Bundle/Deployable executable/APK (not necessarily via App Store cuz $$$)
+    - I can always just run locally or via Expo, but that's not as 733T
