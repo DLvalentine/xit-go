@@ -1,21 +1,35 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { AppRegistry } from 'react-native';
+import { Appbar, BottomNavigation, Provider as PaperProvider } from 'react-native-paper';
 
+import { name as appName } from './app.json';
+import VisualEditor from './views/VisualEditor';
 import RawEditor from './views/RawEditor';
 
 export default function App() {
-  const Tab = createBottomTabNavigator();
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    {key: 'visual', title: 'Visual Editor', focusedIcon: 'eye', unfocusedIcon: 'eye-outline'},
+    {key: 'raw', title: 'Raw Editor', focusedIcon: 'code-json', unfocusedIcon: 'code-braces'}
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    visual: () => <VisualEditor/>,
+    raw: () => <RawEditor/>
+  });
+
   return (
-    <NavigationContainer documentTitle={{
-      formatter: (options, route) =>
-        `${options?.title ?? route?.name} - Xit-Go`,
-    }}>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
-        {/*<Tab.Screen name="Visual Editor" component={VisualEditor} options={{tabBarIcon: ({color,size}) => <MaterialCommunityIcons name="eye" color={color} size={size} />}} />*/}
-        <Tab.Screen name="Raw Editor" component={RawEditor} options={{tabBarIcon: ({color,size}) => <MaterialCommunityIcons name="code-braces" color={color} size={size} />}} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <PaperProvider>
+      <Appbar.Header style={{flexDirection: 'row-reverse'}}>
+        <Appbar.Action icon="content-save" disabled onPress={() => {}} />
+        <Appbar.Action icon="pencil-plus" onPress={() => {}} />
+        <Appbar.Action icon="folder-open" onPress={() => {
+          // TODO - figure out filesystem and implement this first before others...
+        }} />
+      </Appbar.Header>
+      <BottomNavigation navigationState={{index, routes}} onIndexChange={setIndex} renderScene={renderScene}/>
+    </PaperProvider>
   );
-}
+};
+
+AppRegistry.registerComponent(appName, () => App);
