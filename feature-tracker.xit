@@ -3,8 +3,6 @@ Read/Write Xit Files... Anywhere!
 [ ] ! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
 
 Mobile Friendly Editing
-[ ] ! "cheat sheet" for Xit spec
-    - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
 [ ] "swipe" left/right for "quick actions" -> configurable. e.g. delete/mark done
@@ -26,3 +24,8 @@ Nice To Have(s)
 [ ] Description of my own usage/process
     - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
       Xit files, txt files, and so on
+
+Documentation
+[ ] README
+[ ] ! "cheat sheet" for Xit spec
+    - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
