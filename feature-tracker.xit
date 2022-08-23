@@ -35,6 +35,7 @@ Nice To Have(s)
 [ ] Description of my own usage/process
     - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
       Xit files, txt files, and so on
+[ ] local copy of xit file and syncing/file diff reconciliation...? Would need to use device local filesystem API if not provided by node/react-native/expo
 
 Documentation
 [ ] README
