@@ -1,11 +1,6 @@
 Read/Write Xit Files... Anywhere!
 [@] Local #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
     - Need to be able to write NEW files, too, not just write to existing
-    - Looks like I'll need to integrate with the Expo SDK for the easiest way to go through this...maybe. Web doesn't seem supported, I might have to roll my own...?
-    - Tricky part will be with the Android permissions model, too...
-    - Sigh, I might have to use something like Tauri or Electron to just build out a desktop app, mobile is weird.
-    - ^ which would mean a rewrite of the UI (which is fine since I'm early on)
-    - ^ note about this, too, Tauri will eventually support mobile builds, so... probably go with Tauri
 [ ] ! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
     - Need to be able to write NEW files, too, not just write to existing
 
@@ -16,7 +11,7 @@ Serializer
     - Might be an app implementation detail, not necessarily a parser thing.
 
 Mobile Friendly Editing
-[@] ! "raw" mode - if I need to do some restructuring against the "easy mode"
+[ ] ! "raw" mode - if I need to do some restructuring against the "easy mode"
     - syntax highlighting?
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
@@ -48,6 +43,6 @@ Nice To Have(s)
 [ ] local copy of xit file and syncing/file diff reconciliation...? Would need to use device local filesystem API if not provided by node/react-native/expo
 
 Documentation
-[ ] README
+[@] README
 [ ] ! "cheat sheet" for Xit spec
     - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
