@@ -1,7 +1,7 @@
 Rebuilding this with a different framework, will update README at another point
 
 # xit-go
-An Xit file editor for Desktop, Mobile, and Web.
+An Xit file editor for Desktop, Android, and Web.
 Built using:
 
 

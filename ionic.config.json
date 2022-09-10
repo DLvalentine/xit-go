@@ -1,0 +1,7 @@
+{
+  "name": "Xit-Go",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
