@@ -1,4 +1,11 @@
+Rebuilding this with a different framework, will update README at another point
+
 # xit-go
+An Xit file editor for Desktop, Mobile, and Web.
+Built using:
+
+
+# OLD README
 Mobile-Friendly [Xit File](https://xit.jotaen.net/) Editor, built with:
 * [Expo](https://docs.expo.dev/)
 * [React Native](https://reactnative.dev/)
