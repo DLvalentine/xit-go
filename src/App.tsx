@@ -97,8 +97,12 @@ const App: React.FC = () => {
 // TODO -> types?
 // TODO -> usage of xitParse kinda sucks, should rename the default export to xitParse
 // TODO -> docs
+// TODO/NOTE -> File picking is... interesting, depending on device+applications. I may need to make a note of this. e.g. emulated devices don't play super fair
+//              and the physical device I test on works fine, but only because I use FileManager+... my "documents" folder doesn't even appear for some reason.
+//              !!! I should just get the *printing* of this done immediately so I can verify on a physical device that this library works for my purposes anyway...
+//              ^ it might just be an Android permissions thing, *or* it might be an issue with the lib. Either way, 3P apps might help us get around it...
 const pickFile = async (setFileRaw: Function, setFileObject: Function) => {
-  await FilePicker.pickFiles({readData: true}).then((results: any) => {
+  await FilePicker.pickFiles({ types: [], readData: true, multiple: false }).then((results: any) => {
     const decodedData = atob(results?.files[0]?.data);
     setFileRaw(decodedData);
     setFileObject(xitParse.default.toObject(decodedData));
