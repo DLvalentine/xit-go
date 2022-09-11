@@ -10,6 +10,7 @@
     "@capacitor/haptics": "4.0.1",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@capawesome/capacitor-file-picker": "^0.5.0",
     "@ionic/react": "^6.0.0",
     "@ionic/react-router": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.9",
@@ -70,5 +71,5 @@
   "devDependencies": {
     "@capacitor/cli": "4.2.0"
   },
-  "description": "An Xit file editor for Desktop, Mobile, and Web."
+  "description": "An Xit file editor for Desktop, Android, and Web."
 }
