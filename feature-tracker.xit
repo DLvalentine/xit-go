@@ -46,5 +46,5 @@ Nice To Have(s)
 [ ] Reordering of the xit groups - I use UUIDs for the groups, but we might be able to use object.assign to reorder the object representation for writing to string...
 
 Documentation
-[@] README
+[@] README - TO INCLUDE PLATFORM STATUS!!!
 [ ] ! "cheat sheet" for Xit spec WITHIN the application, not just providing the spec
