@@ -40,7 +40,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-// Utils (ts-ignore required for some)
+// Utils (ts-ignore required for xit-parse for now)
 // @ts-ignore
 import * as xitParse from 'xit-parse';
 
@@ -50,6 +50,7 @@ setupIonicReact();
  * TODO -> 
  *   1. FAB, start simple with just the local filesystem file load.
  *   2. On file load, parse xit into object, save both raw and object representation into state (useState)
+ *   3. docs
  */
 const App: React.FC = () => {
   const [fileRaw, setFileRaw] = useState('');
@@ -95,6 +96,7 @@ const App: React.FC = () => {
 // TODO -> file type filter not going to work since it only supports IANA media type, so we'll need to roll our own and verify
 // TODO -> types?
 // TODO -> usage of xitParse kinda sucks, should rename the default export to xitParse
+// TODO -> docs
 const pickFile = async (setFileRaw: Function, setFileObject: Function) => {
   await FilePicker.pickFiles({readData: true}).then((results: any) => {
     const decodedData = atob(results?.files[0]?.data);

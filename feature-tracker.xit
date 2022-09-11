@@ -9,6 +9,8 @@ Serializer
 [x] Parse object to file representation
 [ ] ! Make edit to object content while preserving structure...
     - Might be an app implementation detail, not necessarily a parser thing.
+    - Might also require an update to the parser: if we know the item type, we might want to strip out anything we don't necessarily want to print in the app...
+    - ^ but that could also just be an app implementation detail, since that might not be the desired default behavior. Could also just be an optional thing.
 
 Mobile Friendly Editing
 [ ] ! "raw" mode - if I need to do some restructuring against the "easy mode"
@@ -16,6 +18,7 @@ Mobile Friendly Editing
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
 [ ] "swipe" left/right for "quick actions" -> configurable. e.g. delete/mark done
+    - Might be able to do this with capacitor/prefrences
 [ ] Filtering (e.g. search)
     - Needs to support # tags
 [ ] Tabbed navigation for "saved search" pages
@@ -25,24 +28,23 @@ Mobile Friendly Editing
     - debounced on input (raw mode)
     - after a change (lost focus?)
 
-Syntax Highlighting + Rich Display
+Syntax Highlighting + Rich Display (visual editor)
 [ ] Syntax highlighting based on Xit spec
 [ ] Additional highlighting based on priorty/deadline, etc.
 
 Nice To Have(s)
-[ ] Light/Dark Theme
+[ ] Light/Dark Theme (should actually be pretty easy with ionic)
 [ ] ! "Local Webapp" version JS bundle for desktop use
     - ...because the vscode extension is only *okay* - I think recent updates broke the extension
+    - this should actually be pretty easy with ionic
 [ ] ! Bundle/Deployable executable/APK (not necessarily via App Store cuz $$$)
-    - I can always just run locally or via Expo, but that's not as 733T
-    - I might actually be able to deploy this to app stores (google at least) for free.
-    - There's some API documentation for deploying it - 
+    - Should be possible with ionic
 [ ] Description of my own usage/process
     - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
       Xit files, txt files, and so on
 [ ] local copy of xit file and syncing/file diff reconciliation...? Would need to use device local filesystem API if not provided by node/react-native/expo
+[ ] Reordering of the xit groups - I use UUIDs for the groups, but we might be able to use object.assign to reorder the object representation for writing to string...
 
 Documentation
 [@] README
-[ ] ! "cheat sheet" for Xit spec
-    - I should probably include - in some sort of "about" section - a link/reference to the original spec page/repo, etc.
+[ ] ! "cheat sheet" for Xit spec WITHIN the application, not just providing the spec
