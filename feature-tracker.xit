@@ -1,7 +1,5 @@
 Read/Write Xit Files... Anywhere!
-[@] Local #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
-    - Need to be able to write NEW files, too, not just write to existing
-[ ] ! Remote (via Google Drive initially) #needs-research #file-io #api #dependsOn:serializer | optimistic MVP -> 2022-Q4
+[@] Filesystem Access #needs-reearch #file-io #dependsOn:serializer | optimistic MVP -> 2022-Q4
     - Need to be able to write NEW files, too, not just write to existing
 
 Serializer
@@ -13,7 +11,7 @@ Serializer
     - ^ but that could also just be an app implementation detail, since that might not be the desired default behavior. Could also just be an optional thing.
 
 Mobile Friendly Editing
-[ ] ! "raw" mode - if I need to do some restructuring against the "easy mode"
+[@] ! "raw" mode - if I need to do some restructuring against the "easy mode"
     - syntax highlighting?
 [ ] "+" sign to add new
 [ ] "tap for context" menu to change status, priority, add tags, etc.
@@ -37,8 +35,9 @@ Nice To Have(s)
 [ ] ! "Local Webapp" version JS bundle for desktop use
     - ...because the vscode extension is only *okay* - I think recent updates broke the extension
     - this should actually be pretty easy with ionic
-[ ] ! Bundle/Deployable executable/APK (not necessarily via App Store cuz $$$)
+[ ] ! Bundle/Deployable executable/APK
     - Should be possible with ionic
+    - Might even be able to distribute to google play
 [ ] Description of my own usage/process
     - e.g. going back to basics with the filesystem. General stuff toplevel, projects/specifics in folders that consist of
       Xit files, txt files, and so on
@@ -46,5 +45,5 @@ Nice To Have(s)
 [ ] Reordering of the xit groups - I use UUIDs for the groups, but we might be able to use object.assign to reorder the object representation for writing to string...
 
 Documentation
-[@] README - TO INCLUDE PLATFORM STATUS!!!
+[@] README - To incluude platform status, known issues, and note about Google Drive (can use if you have integration already like with 3p, but no 1p support for now)
 [ ] ! "cheat sheet" for Xit spec WITHIN the application, not just providing the spec

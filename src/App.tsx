@@ -14,7 +14,8 @@ import {
   setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { add, code, eye } from 'ionicons/icons';
+import { getPlatforms } from '@ionic/react';
+import { cloudUploadOutline, code, eye } from 'ionicons/icons';
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 
 // Pages/Components
@@ -44,17 +45,25 @@ import './theme/variables.css';
 // @ts-ignore
 import * as xitParse from 'xit-parse';
 
-setupIonicReact();
+setupIonicReact({
+  platform: {
+    /** The default `desktop` function returns false for devices with a touchscreen.
+     * This is not always wanted, so this function tests the User Agent instead.
+     **/
+    desktop: (win) => {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(win.navigator.userAgent);
+      return !isMobile;
+    },
+  },
+});
 
-/**
- * TODO -> 
- *   1. FAB, start simple with just the local filesystem file load.
- *   2. On file load, parse xit into object, save both raw and object representation into state (useState)
- *   3. docs
- */
+// TODO -> docs
 const App: React.FC = () => {
-  const [fileRaw, setFileRaw] = useState('');
-  const [fileObject, setFileObject] = useState({});
+  const [filePath, setFilePath] = useState(null);
+  const [fileRaw, setFileRaw] = useState(null);
+  const [fileObject, setFileObject] = useState(null);
+  // TODO -> Error object/state for toast messages
+  // TODO -> Autosave state for mobile/electron (default false)
 
   return (
     <IonApp>
@@ -84,29 +93,42 @@ const App: React.FC = () => {
         </IonTabs>
       </IonReactRouter>
       <IonFab vertical="top" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => pickFile(setFileRaw, setFileObject)}>
-          <IonIcon icon={add} />
+        <IonFabButton id="file-picker-button" onClick={() => pickFileHandler(setFilePath, setFileRaw, setFileObject)}>
+          <IonIcon icon={cloudUploadOutline} />
         </IonFabButton>
       </IonFab>
     </IonApp>
   );
 };
 
-// TODO -> rename(?), improve with filtering, etc.
-// TODO -> file type filter not going to work since it only supports IANA media type, so we'll need to roll our own and verify
-// TODO -> types?
 // TODO -> usage of xitParse kinda sucks, should rename the default export to xitParse
 // TODO -> docs
-// TODO/NOTE -> File picking is... interesting, depending on device+applications. I may need to make a note of this. e.g. emulated devices don't play super fair
-//              and the physical device I test on works fine, but only because I use FileManager+... my "documents" folder doesn't even appear for some reason.
-//              !!! I should just get the *printing* of this done immediately so I can verify on a physical device that this library works for my purposes anyway...
-//              ^ it might just be an Android permissions thing, *or* it might be an issue with the lib. Either way, 3P apps might help us get around it...
-const pickFile = async (setFileRaw: Function, setFileObject: Function) => {
-  await FilePicker.pickFiles({ types: [], readData: true, multiple: false }).then((results: any) => {
-    const decodedData = atob(results?.files[0]?.data);
-    setFileRaw(decodedData);
-    setFileObject(xitParse.default.toObject(decodedData));
-  });
+// NOTE/TODO -> For below, one of the other things to consider is the auto-save vs. manual save question... when/how/UI consideration. We aren't going to do
+//              tabbed editing at first, so think "notepad" before we get to "notepad++" I think manual saving is fine... but it could be too ez to accidentally blow away changes.
+//              See below for more.
+const pickFileHandler = async (setFilePath: Function, setFileRaw: Function, setFileObject: Function) => {
+  const platforms : Array<string> = getPlatforms();
+
+  // Use Electron APIs for file i/o if platform is electron.
+  if(platforms.includes('electron')) {
+    // TODO -> implement when ready to work on Desktop
+    // NOTE -> The below works fine for web/mobile, but web is going to need some extra help for file saving lol... saving is going to be a wild ride, too - for web we'll need to download instead of just.... save. ugh
+  } else {
+    await FilePicker.pickFiles({ types: [], readData: true, multiple: true }).then((results: any) => {
+      try {
+        if(!results?.files[0]?.name.includes('.xit')) throw 'Uploaded file is not *.xit format!';
+        const decodedData : string = atob(results?.files[0]?.data || null);
+        setFilePath(results?.files[0]?.path || null); // TODO -> need more testing/verification on mobile
+        setFileRaw(decodedData); // TODO -> need more testing/verification on mobile
+        setFileObject(xitParse.default.toObject(decodedData)); // TODO -> need more testing/verification on mobile
+      } catch (e) {
+        // TODO -> Use/update error toast(s) when implemented
+        console.error(`Unable to parse file, reason: ${e}`);
+      }
+    });
+  }
 };
+
+// TODO -> file writing (manual and auto)
 
 export default App;
